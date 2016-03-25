@@ -1,8 +1,13 @@
 $icon-font-path: '../fonts/';
 
 // bower:scss
-@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
+
+@import "bower_components/lato/scss/lato";
+
+@import 'partials/material';
+@import 'partials/mixins';
 
 .browserupgrade {
   margin: 0.2em 0;
@@ -17,77 +22,328 @@ body {
   padding-bottom: 20px;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+// Colores
+$primary-color: #1e82d1;
+$grey: #333;
+$white: #fff;
+$placeholder: rgba(51,51,51,.5);
+$border: #ccc;
+//tipos
+$font-stack:   'Lato', sans-serif;
+
+//material
+.material-icons {
+  color: $primary-color;
+  font-size: 24px;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+body {
+  font: 100% $font-stack;
+  color: $white;
+}
+ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+input {
+  border:0;
+  font-size:12px;
+}
+.num-room {
+  color: $primary-color;
+}
+.wrap-search {
+  width:878px;
+  box-sizing: border-box;
+  margin:0 auto;
+  padding:6px 18px;
+  background-color: $grey;
+  @include clearfix;
+  .search {
+    background-color: $white;
+    padding: 6px;
+    float:left;
+    min-height:24px;
+    margin-right:3px;
+    border:1px solid $border;
+  }
+  .search-target {
+    @include clearfix;
+      i {
+        float:left;
+      }
+      input{
+        width:220px;
+        margin-top:4px;
+        float:left;
+        color:#333;
+        text-transform:uppercase;
+        @include placeholder {
+          color: $placeholder;
+        }
+      }
+  }
+  .search-data {
+    width: 90px;
+    @include clearfix;
+      i {
+        float: left;
+      }
+      a {
+        font-size: 12px;
+        float: left;
+        text-transform:uppercase;
+        color: $grey;
+        text-decoration:none;
+      }
+      .link-calendar {
+        margin-left: 6px;
+        margin-top:4px;
+        display: inline-block;
+      }
+  }
+  .search-booking {
+    cursor:pointer;
+    position:relative;
+    padding:0;
+    @include clearfix;
+      .search-booking-btn {
+        overflow:hidden;
+        padding:6px;
+        height:24px;
+      }
+      .search-booking-item {
+        float:left;
+        width:60px;
+        height: 24px;
+        border-right:1px solid $border;
+        text-align: center;
+        &:last-child{
+          border-right:0;
+        }
+        input{
+          width:15px;
+        }
+      }
+      i.mi-key {
+        transform: rotate( 90deg );
+      }
+      i.mi-kid {
+        font-size: 18px;
+        margin-top: 4px;
+      }
+      input {
+        margin-top: 4px;
+        margin-left: 4px;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: $grey;
+        text-decoration: none;
+        vertical-align: top;
+        cursor: pointer;
+      }
+      .count {
+        width:50px;
+        display:inline-block;
+        color: $grey;
+      }
+  }
+  .search-booking.selected {
+    border: 1px solid $primary-color;
+  }
+  .search-button {
+    background-color: $primary-color;
+    padding: 0;
+    margin:0;
+    border:1px solid $primary-color;
+      .link-search {
+        display: block;
+        color: $white;  
+        padding: 6px 30px;
+        min-height: 24px;
+      }
+      .txt-search {
+        float: left;
+        text-transform: uppercase;
+        margin-right:15px;
+        line-height: 24px;
+      }
+      i {
+        color: $white;  
+        float: left;
+        transform: rotateY( 180deg );
+      }
   }
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+.wrap-room-list {
+  position:absolute;
+  top:50px;
+  left: -65px;
+  background-color: $white;
+  width:320px;
+  color: $grey;
+  border-top:1px solid #cdcdcd;
+  -webkit-box-shadow: 0px 5px 11px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 5px 11px -6px rgba(0,0,0,0.75);
+  box-shadow: 0px 5px 11px -6px rgba(0,0,0,0.75);
+  &:after, &:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  &:after {
+    border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #fff;
+  border-width: 10px;
+  margin-left: -10px;
+  }
+  &:before {
+    border-color: rgba(205, 205, 205, 0);
+  border-bottom-color: #cdcdcd;
+  border-width: 11px;
+  margin-left: -11px;
+  }
+  .room-list { 
+    > li{
+      float:left;
+      width: 100%;
+      padding:6px 12px;
+      border-bottom:1px solid #cdcdcd;
+      box-sizing: border-box;
+      background-color: $white;
+      .room-title {
+          float:left;
+          font-size: 14px;
+          font-weight: 600;
+          margin-top: 10px;
+          text-transform: uppercase;
+          vertical-align: top;
+      }
+      .addAdults, .addKids {
+        float:left;
+        margin-left: 15px;
+        position: relative;
+      }
+      .addKids .mi-kid{
+        margin-top:10px;
+      }
+      .material-icons {
+        margin-top:6px;
+      }
+      .mi-more {
+        position: absolute;
+        right: 5px;
+        top: 1px;
+      }
+      .delete {
+        margin-left: 9px;
+        .material-icons {
+           font-size: 16px;
+          margin-top: 10px;
+        }
+      }
+      input {
+        border: 1px solid #ccc;
+        height: 24px;
+        padding-left: 8px;
+        width: 35px;
+      }
+    }
+  }
   .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+    text-align:center;
+    display:block;
+    background-color:#f0f0f0;
+    color: $primary-color;
+    padding: 7px 0 4px;
+    text-decoration: none;
+    .txt-add-room {
+        font-size: 13px;
+        line-height: 24px;
+        margin: 2px 0 0 5px;
+        vertical-align: top;
+        font-weight:400;
+    }
   }
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-  p + h4 {
-    margin-top: 28px;
+$select-color: #fff;
+$select-background: #c0392b;
+$select-width: 60px;
+$select-height: 20px; 
+.select-hidden {
+  display: none;
+  visibility: hidden;
+  padding-right: 10px;
+}
+.select {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  color: $select-color;
+  width: $select-width;
+  height: $select-height;
+}
+.select-styled {
+  position: absolute; 
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $select-background;
+  padding: 8px 15px;
+  &:after {
+    content:"";
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-color: $select-color transparent transparent transparent;
+    position: absolute;
+    top: 16px;
+    right: 10px;
+  }
+  &:hover {
+    background-color: darken($select-background, 2);
+  }
+  &:active, &.active {
+    background-color: darken($select-background, 5);
+    &:after {
+      top: 9px;
+      border-color: transparent transparent $select-color transparent;
+    }
   }
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+.select-options {
+  display: none; 
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: darken($select-background, 5);
+  li {
+    margin: 0;
+    padding: 12px 0;
+    text-indent: 15px;
+    border-top: 1px solid darken($select-background, 10);
+    &:hover {
+      color: $select-background;
+      background: $select-color;
+    }
+    &[rel="hide"] {
+      display: none;
+    }
   }
 }

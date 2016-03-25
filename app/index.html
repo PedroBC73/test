@@ -11,9 +11,12 @@
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/lato/css/lato.css" />
     <!-- endbower -->
     <!-- endbuild -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+    <link rel="stylesheet" href="/bower_components/material-icons/css/material-icons.min.css">
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -26,44 +29,32 @@
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">multiplica</h3>
+    <div class="wrap-search">
+      <div class="search search-target">
+        <i class="material-icons">location_on</i>
+        <input id="target" type="text" name="target" placeholder="Selecciona ciudad, pais o hotel">
       </div>
-
-      <div class="jumbotron">
-        <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
+      <div class="search search-data">
+        <a href="#"><i class="material-icons">today</i><span class="link-calendar">Entrada</span></a>
       </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>HTML5 Boilerplate</h4>
-          <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-          
-          <h4>Sass</h4>
-          <p>Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.</p>
-          
-          <h4>Bootstrap</h4>
-          <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-          <h4>Modernizr</h4>
-          <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
-          
+      <div class="search search-data">
+        <a href="#"><i class="material-icons">today</i><span class="link-calendar">Entrada</span></a>
+      </div>
+      <div class="search search-booking">   
+        <div class="search-booking-btn">
+          <div class="search-booking-item search-booking-rooms"><i class="material-icons mi-key">vpn_key</i><span id="rooms" class="num-room"></span></div>
+          <div class="search-booking-item search-booking-rooms"><i class="material-icons mi-adult">person</i><span id="adults" class="num-room"></span></div>
+          <div class="search-booking-item search-booking-rooms"><i class="material-icons mi-kid">person</i><span id="kids" class="num-room"></span></div>
         </div>
+        <div class="wrap-room-list" style="display: none;">
+          <ul class="room-list" ></ul>
+          <a class="btn" href="javascript:void(0);"><i class="material-icons">add_circle_outline</i><span class="txt-add-room">AÑADIR HABITACIÓN</span></a>
+          </div>
       </div>
-
-      <div class="footer">
-        <p>♥ from the Yeoman team</p>
+      <div class="search search-button">
+        <a class="link-search" href="#"><span class="txt-search">Buscar</span><i class="material-icons">search</i></a>
       </div>
-    </div>
-    
+    </div>    
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -81,6 +72,7 @@
     <!-- endbuild -->
     
     <!-- build:js scripts/plugins.js -->
+    <!--
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
@@ -93,6 +85,7 @@
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    -->
     <!-- endbuild -->
     
     <!-- build:js scripts/main.js -->
