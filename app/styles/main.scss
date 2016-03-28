@@ -50,6 +50,15 @@ input {
   border:0;
   font-size:12px;
 }
+.button {
+    padding: 9px 15px;
+    background-color: $primary-color;
+    border: 0;
+    text-transform: uppercase;
+    color: $white;
+    margin-right: 10px;
+    cursor: pointer;
+  }
 .num-room {
   color: $primary-color;
 }
@@ -272,6 +281,73 @@ input {
         font-weight:400;
     }
   }
+}
+.wrapdiscount {@include clearfix;}
+.discount {
+  float: left;
+  margin-top: 7px;
+  @include clearfix;
+  .open, .close {
+    color: $white;
+    text-decoration: none;
+    &:hover{
+      text-decoration: none;
+    }
+    .material-icons {
+      float: right;
+    }
+  }
+  &:first-child {
+    margin-right: 10px;
+  }
+  .close {
+    .material-icons {
+      font-size: 20px;
+      margin-top: 1px;
+      margin-left: 3px;
+    }
+  }
+}
+#addcode, #addtarifa {
+  display: none;
+}
+.add-code {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  input {
+    width: 235px;
+    height: 33px;
+    margin-right:  10px;
+    padding: 0 12px;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  .close {
+    color: $primary-color;
+    text-decoration: none;
+    margin-left: 15px; 
+    margin-right: 15px;
+  }
+}
+.add-tarifa {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  .close {
+    color: $primary-color;
+    text-decoration: none;
+    margin-left: 15px; 
+    margin-right: 15px;
+  }
+}
+.error {
+  border: 1px solid red;
+  outline: none;
+}
+.warning {
+  display: inline-block;
+  color: red;
+  font-size: 14px;
+  font-style: italic;
 }
 
 $select-color: #fff;
